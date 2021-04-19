@@ -1,0 +1,65 @@
+{
+    "name": "codelytv/php-bootstrap",
+    "description": "Starting point if you want to bootstrap a project in PHP following best practices.",
+    "type": "project",
+    "keywords": [
+        "bootstrap",
+        "skeleton",
+        "kata",
+        "TDD",
+        "boilerplate"
+    ],
+    "homepage": "https://codely.tv",
+    "time": "2018-07-18",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Javier Ferrer",
+            "email": "javier.ferrer@codely.tv",
+            "homepage": "https://codely.tv",
+            "role": "Developer"
+        },
+        {
+            "name": "Rafa Gómez",
+            "email": "rafa.gomez@codely.tv",
+            "homepage": "https://codely.tv",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4"
+    },
+    "require-dev": {
+        "jakub-onderka/php-parallel-lint": "^1.0",
+        "jakub-onderka/php-console-highlighter": "^0.3",
+        "squizlabs/php_codesniffer": "^3.3",
+        "phpunit/phpunit": "^7.2",
+        "symfony/var-dumper": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "CodelyTv\\StepShotgunSurgery\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CodelyTv\\StepShotgunSurgery\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "config": {
+        "optimize-autoloader": true
+    },
+    "prefer-stable": true,
+    "scripts": {
+        "lint": "parallel-lint . --exclude vendor",
+        "style": "phpcs -p --standard=PSR2 src tests",
+        "fix-style": "phpcbf -p --standard=PSR2 src tests",
+        "phpunit": "phpunit --configuration phpunit.xml",
+        "test": [
+            "parallel-lint . --exclude vendor",
+            "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
+            "phpunit --configuration phpunit.xml"
+        ]
+    }
+}
