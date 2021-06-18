@@ -1,0 +1,9 @@
+# Gradle
+.gradle
+build/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+var/log/*
+!var/log/.gitkeep
